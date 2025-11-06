@@ -1,5 +1,6 @@
 package graphql;
 
+import com.cipriano.demo.domain.Libro;
 import com.cipriano.demo.domain.Prestamo;
 import com.cipriano.demo.repo.*;
 import org.springframework.graphql.data.method.annotation.*;
@@ -24,7 +25,7 @@ public class BibliotecaGraphql {
     }
 
     @QueryMapping
-    public List<com.example.demo.domain.Libro> libros(@Argument String titulo,
+    public List<Libro> libros(@Argument String titulo,
                                                       @Argument Long autorId,
                                                       @Argument Long categoriaId){
         if (titulo!=null) return libroRepo.findByTituloContainingIgnoreCase(titulo);
